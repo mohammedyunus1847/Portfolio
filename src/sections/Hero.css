@@ -1,0 +1,322 @@
+/* =========================================================
+   Hero — two column layout: introduction | portrait
+   ========================================================= */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(76vh, 660px);
+  padding-top: calc(var(--nav-height) + clamp(28px, 4.4vh, 56px));
+  padding-bottom: clamp(30px, 4.4vh, 56px);
+}
+
+/* The grid IS the layout.
+   1.55fr / 1fr keeps the portrait at roughly 38% of the hero width,
+   and both columns share the full container width — no dead space. */
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 60px);
+  width: 100%;
+}
+
+.hero__content {
+  min-width: 0;
+}
+
+/* ---------------- Eyebrow label ---------------- */
+.hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #97a0ff;
+  border: 1px solid rgba(91, 108, 255, 0.28);
+  background: rgba(91, 108, 255, 0.08);
+  border-radius: 999px;
+  padding: 7px 14px 7px 12px;
+  margin-bottom: clamp(16px, 1.9vw, 22px);
+}
+
+.hero__label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* ---------------- Name & role ---------------- */
+.hero__title {
+  font-size: clamp(2.25rem, 4.3vw, 3.3rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  margin-bottom: clamp(12px, 1.5vw, 16px);
+}
+
+.hero__title-name {
+  display: block;
+  color: #fff;
+}
+
+.hero__role {
+  display: block;
+  margin-top: 7px;
+  font-size: clamp(0.98rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-muted);
+}
+
+.hero__role-accent {
+  background: linear-gradient(100deg, #8f99ff, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------- Headline & description ---------------- */
+.hero__headline {
+  font-size: clamp(1.1rem, 1.8vw, 1.38rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero__description {
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 1.15vw, 1.02rem);
+  line-height: 1.68;
+  max-width: 48ch;
+  margin-bottom: clamp(16px, 1.9vw, 22px);
+}
+
+/* ---------------- Supporting technologies ---------------- */
+.hero__stack {
+  margin-bottom: clamp(18px, 2.2vw, 26px);
+}
+
+.hero__stack .tag {
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.hero__stack .tag:hover {
+  color: #fff;
+  border-color: rgba(91, 108, 255, 0.42);
+  background: rgba(91, 108, 255, 0.1);
+}
+
+/* ---------------- Actions ---------------- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: clamp(18px, 2.2vw, 26px);
+}
+
+/* ---------------- Social links ---------------- */
+.hero__socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hero__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.hero__social:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.hero__social svg {
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.hero__social:hover svg {
+  color: var(--accent);
+}
+
+/* ---------------- Portrait ----------------
+   The frame simply fills its grid column — no fixed width,
+   no end-alignment, no absolute offsets. */
+.hero__portrait {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.hero__portrait-frame {
+  position: relative;
+  display: grid;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: radial-gradient(
+      120% 90% at 18% 0%,
+      rgba(91, 108, 255, 0.14),
+      transparent 62%
+    ),
+    #0c0e14;
+  box-shadow: 0 26px 60px -46px rgba(0, 0, 0, 1);
+  animation: photo-in 0.6s 0.1s var(--ease) both;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The photo is 960x698: the subject sits right of centre and the top third
+   of the picture is empty backdrop. A portrait frame is taller than the
+   picture, so `cover` on its own would always keep that empty band — the
+   picture is therefore scaled to 150% and pulled up, which crops the empty
+   band away while the face, shoulders and suit stay inside the 4:5 frame.
+   object-position then decides which part of the scaled picture is kept
+   horizontally (100% = the right side, where the subject is).
+   Nudge these four values if the picture is replaced. */
+.hero__portrait-img {
+  position: absolute;
+  top: -40%;
+  left: -4%;
+  width: 150%;
+  height: 150%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 100% 50%;
+  display: block;
+}
+
+.hero__portrait-fallback {
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: rgba(236, 238, 245, 0.2);
+}
+
+.hero__portrait-caption {
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+/* Tablet — keep the two columns, tighten gap, type and buttons */
+@media (max-width: 980px) {
+  .hero {
+    min-height: 0;
+    padding-top: calc(var(--nav-height) + 44px);
+  }
+
+  .hero__inner {
+    gap: clamp(24px, 3.4vw, 38px);
+  }
+
+  /* Primary CTA on its own row, the other two share the row below */
+  .hero__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    padding-inline: 14px;
+  }
+
+  .hero__actions .btn:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Small tablet — a single column of buttons reads better */
+@media (max-width: 700px) {
+  .hero__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions .btn:first-child {
+    grid-column: auto;
+  }
+}
+
+/* Mobile — stack the text above the portrait, portrait stays visible */
+@media (max-width: 640px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .hero__portrait {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero__socials {
+    gap: 2px;
+  }
+
+  .hero__social {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  .hero__portrait {
+    max-width: 280px;
+  }
+
+  .hero__portrait-caption {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+  }
+}

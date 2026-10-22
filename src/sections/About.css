@@ -1,0 +1,102 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+/* Text column ------------------------------------------------------- */
+.about__text {
+  display: grid;
+  gap: 18px;
+}
+
+.about__text p {
+  color: var(--text-muted);
+  font-size: clamp(0.97rem, 1.3vw, 1.04rem);
+  line-height: 1.8;
+}
+
+.about__text p:first-child {
+  color: #d3d7e4;
+  font-size: clamp(1rem, 1.4vw, 1.09rem);
+}
+
+/* Summary card ------------------------------------------------------- */
+.about__summary {
+  padding: clamp(22px, 2.6vw, 28px);
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  position: sticky;
+  top: calc(var(--nav-height) + 24px);
+}
+
+.about__summary-title {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about__summary-list {
+  display: grid;
+}
+
+.about__summary-row {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.about__summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about__summary-row dt {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 5px;
+}
+
+.about__summary-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: #9ba4ff;
+}
+
+.about__summary-row dd {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--text);
+  padding-left: 33px;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Responsive --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about__summary {
+    position: static;
+  }
+}

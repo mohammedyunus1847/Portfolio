@@ -1,0 +1,29 @@
+/* =========================================================
+   Projects section layout
+   Card styling lives in src/components/ProjectCard.css
+   ========================================================= */
+
+/* Featured project sits above the grid */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+/* Three columns on wide screens */
+@media (max-width: 1080px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* One column on phones */
+@media (max-width: 680px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+}

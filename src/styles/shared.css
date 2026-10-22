@@ -1,0 +1,44 @@
+/* =========================================================
+   Shared UI primitives used across multiple sections
+   ========================================================= */
+
+/* Tech / meta tag row ------------------------------------------------ */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: -0.01em;
+}
+
+/* Checklist -------------------------------------------------------- */
+.feature-list {
+  display: grid;
+  gap: 10px;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.feature-list li svg {
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
