@@ -12,7 +12,7 @@
   top: 10px;
   bottom: 10px;
   width: 1px;
-  background: linear-gradient(180deg, var(--accent-line), rgba(255, 255, 255, 0.08));
+  background: linear-gradient(180deg, var(--accent-line), var(--border-soft));
 }
 
 .timeline__item {
@@ -27,16 +27,17 @@
   height: 9px;
   border-radius: 50%;
   background: var(--bg);
-  border: 2px solid rgba(91, 108, 255, 0.8);
-  box-shadow: 0 0 0 4px rgba(91, 108, 255, 0.1);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
   z-index: 1;
 }
 
 .timeline__card {
   padding: clamp(20px, 2.4vw, 26px);
-  background: rgba(255, 255, 255, 0.018);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
+  box-shadow: var(--shadow-sm);
   transition: transform 250ms ease, border-color 250ms ease, background-color 250ms ease,
     box-shadow 250ms ease;
 }
@@ -44,14 +45,14 @@
 @media (hover: hover) and (pointer: fine) {
   .timeline__item:hover .timeline__card {
     transform: translateY(-4px);
-    border-color: rgba(91, 108, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.024);
-    box-shadow: 0 26px 50px -42px rgba(91, 108, 255, 0.6);
+    border-color: var(--card-border-hover);
+    background-color: var(--card-bg-hover);
+    box-shadow: var(--shadow);
   }
 
   .timeline__item:hover .timeline__node {
     border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(91, 108, 255, 0.14);
+    box-shadow: 0 0 0 4px var(--accent-soft);
   }
 }
 
@@ -65,9 +66,9 @@
 .timeline__period {
   font-family: var(--mono);
   font-size: 0.73rem;
-  color: #b3baff;
+  color: var(--accent-text);
   background: var(--accent-soft);
-  border: 1px solid rgba(91, 108, 255, 0.3);
+  border: 1px solid var(--accent-line);
   border-radius: 6px;
   padding: 3px 10px;
 }

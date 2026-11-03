@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Download, Menu, X } from "lucide-react";
 import { navLinks, profile } from "../data/siteData";
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -77,6 +78,8 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar__actions">
+          <ThemeToggle className="navbar__theme" />
+
           <a href={profile.resumeUrl} className="btn btn-primary btn-sm navbar__resume" download>
             <Download aria-hidden="true" />
             <span>Resume</span>
@@ -115,6 +118,11 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+
+          <div className="navbar__mobile-theme">
+            <span>Appearance</span>
+            <ThemeToggle />
+          </div>
 
           <a
             href={profile.resumeUrl}

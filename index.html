@@ -17,6 +17,27 @@
     />
     <meta name="theme-color" content="#08090d" />
 
+    <!-- Apply the saved theme before paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("portfolio-theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "light" ? "#f5f6fb" : "#08090d");
+        } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+
     <!-- Open Graph
          NOTE: replace the placeholder domain below with your real deployed URL,
          and add a 1200x630 social preview image at /og-image.png -->

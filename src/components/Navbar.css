@@ -3,19 +3,19 @@
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--nav-height);
-  background: rgba(8, 9, 13, 0.4);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  border-bottom: 1px solid var(--nav-border);
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navbar--solid {
-  background: rgba(8, 9, 13, 0.86);
+  background: var(--nav-bg-solid);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   border-bottom-color: var(--border);
-  box-shadow: 0 12px 32px -26px rgba(0, 0, 0, 1);
+  box-shadow: var(--shadow-nav);
 }
 
 .navbar__inner {
@@ -44,15 +44,15 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #c3c9ff;
-  background: var(--accent-soft);
-  border: 1px solid rgba(91, 108, 255, 0.35);
-  transition: background 0.2s ease, color 0.2s ease;
+  color: var(--accent-contrast);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 18px -12px var(--accent);
+  transition: filter 0.2s ease, transform 0.2s var(--ease);
 }
 
 .navbar__logo:hover .navbar__logo-mark {
-  background: rgba(91, 108, 255, 0.22);
-  color: #fff;
+  filter: brightness(1.12);
+  transform: translateY(-1px);
 }
 
 .navbar__logo-text {
@@ -80,11 +80,11 @@
 
 .navbar__link:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--hover-fill);
 }
 
 .navbar__link.is-active {
-  color: #fff;
+  color: var(--accent-text);
   background: var(--accent-soft);
 }
 
@@ -126,7 +126,7 @@
   right: 0;
   bottom: 0;
   padding: 22px;
-  background: rgba(8, 9, 13, 0.98);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   opacity: 0;
@@ -198,6 +198,20 @@
   opacity: 1;
   transform: none;
   color: var(--accent);
+}
+
+.navbar__mobile-theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 .navbar__mobile-resume {

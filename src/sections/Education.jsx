@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, School } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 import Reveal from "../components/Reveal";
 import Section from "../components/Section";
 import { education } from "../data/siteData";

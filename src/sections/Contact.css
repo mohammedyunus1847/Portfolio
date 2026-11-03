@@ -26,15 +26,18 @@
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s var(--ease),
+    box-shadow 0.22s ease;
 }
 
 .contact__channel:hover {
-  border-color: rgba(91, 108, 255, 0.42);
-  background: var(--surface-strong);
+  border-color: var(--card-border-hover);
+  background: var(--card-bg-hover);
+  box-shadow: var(--shadow);
   transform: translateX(4px);
 }
 
@@ -74,11 +77,13 @@
 .contact__form-card {
   display: flex;
   padding: clamp(22px, 3vw, 34px);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .contact__form {
@@ -102,7 +107,7 @@
 .contact__field textarea {
   width: 100%;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.032);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text);
@@ -120,8 +125,8 @@
 .contact__field textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(91, 108, 255, 0.07);
-  box-shadow: 0 0 0 4px rgba(91, 108, 255, 0.14);
+  background: var(--input-bg-focus);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .contact__submit {
@@ -150,9 +155,9 @@
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(74, 222, 128, 0.12);
-  border: 1px solid rgba(74, 222, 128, 0.35);
-  color: #4ade80;
+  background: var(--success-soft);
+  border: 1px solid var(--success-border);
+  color: var(--success);
   margin-bottom: 4px;
 }
 
@@ -183,7 +188,7 @@
   padding-top: 18px;
   font-family: var(--mono);
   font-size: 0.85rem;
-  color: #9ba4ff;
+  color: var(--accent-text);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
