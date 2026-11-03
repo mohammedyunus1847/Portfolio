@@ -67,6 +67,24 @@
   }
 }
 
+/* ---------------- Edge label ---------------- */
+.hero__side {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  z-index: 1;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  animation: hero-in 0.9s 0.7s var(--ease) both;
+}
+
 /* ---------------- Layout ---------------- */
 .hero__inner {
   display: grid;
@@ -139,7 +157,7 @@
 
 /* ---------------- Name & role ---------------- */
 .hero__title {
-  margin-bottom: clamp(14px, 1.8vw, 20px);
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .hero__greeting {
@@ -155,14 +173,26 @@
 }
 
 .hero__name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2.9rem, 6.4vw, 5rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-size: clamp(3.7rem, 8.6vw, 7rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: -0.035em;
   color: var(--heading);
   animation: hero-in 0.8s 0.16s var(--ease) both;
+}
+
+.hero__name-first {
+  display: block;
+}
+
+.hero__name-last {
+  display: block;
+  margin-left: clamp(18px, 4.5vw, 64px);
+  font-style: italic;
+  color: var(--heading);
 }
 
 .hero__name-dot {
@@ -173,11 +203,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 9px;
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.6vw, 1.24rem);
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 0.9vw, 0.74rem);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: clamp(15px, 1.9vw, 20px);
   animation: hero-in 0.8s 0.22s var(--ease) both;
@@ -188,10 +219,7 @@
 }
 
 .hero__role-accent {
-  background: linear-gradient(100deg, var(--accent-text), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent-text);
 }
 
 /* ---------------- Description ---------------- */
@@ -296,10 +324,27 @@
 .hero__portrait {
   position: relative;
   width: 100%;
-  max-width: 430px;
+  max-width: 452px;
   min-width: 0;
   margin: 0 0 0 auto;
   animation: hero-in 0.9s 0.3s var(--ease) both;
+}
+
+.hero__portrait::before {
+  content: "";
+  position: absolute;
+  inset: 22px -18px -18px 24px;
+  z-index: 0;
+  border: 1px solid var(--accent-line);
+  border-radius: calc(var(--radius-lg) + 6px);
+  transform: rotate(3deg);
+  transition: transform 0.4s var(--ease), border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.hero__portrait:hover::before {
+  transform: rotate(1.5deg) translate(4px, 4px);
+  border-color: var(--accent);
 }
 
 .hero__portrait-glow {
@@ -315,6 +360,7 @@
 
 .hero__portrait-frame {
   position: relative;
+  z-index: 1;
   display: grid;
   aspect-ratio: 4 / 5;
   overflow: hidden;
@@ -379,24 +425,58 @@
 
 .hero__portrait-tag {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
+  top: 14px;
+  right: 14px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(10, 10, 12, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(10, 10, 12, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #fff;
   font-family: var(--mono);
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.hero__portrait-card {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 15px;
+  border-radius: 14px;
+  background: rgba(10, 10, 12, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+}
+
+.hero__portrait-card-label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.hero__portrait-card-value {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .hero__portrait-tag-dot {
@@ -407,16 +487,30 @@
 }
 
 .hero__portrait-caption {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 14px;
+  margin-top: 26px;
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.61rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-dim);
+}
+
+.hero__portrait-caption-index {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  color: var(--accent-text);
+  font-size: 0.55rem;
+  letter-spacing: 0;
 }
 
 .hero__portrait-line {
@@ -502,6 +596,12 @@
    Responsive
    ========================================================= */
 
+@media (max-width: 1360px) {
+  .hero__side {
+    display: none;
+  }
+}
+
 @media (max-width: 980px) {
   .hero {
     min-height: 0;
@@ -535,7 +635,11 @@
   }
 
   .hero__name {
-    font-size: clamp(2.6rem, 11vw, 3.6rem);
+    font-size: clamp(3rem, 13vw, 4.4rem);
+  }
+
+  .hero__name-last {
+    margin-left: clamp(14px, 7vw, 40px);
   }
 
   .hero__footer {
@@ -570,6 +674,10 @@
 
   .hero__portrait {
     max-width: 300px;
+  }
+
+  .hero__name {
+    font-size: clamp(2.7rem, 14vw, 3.6rem);
   }
 }
 

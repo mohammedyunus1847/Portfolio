@@ -127,13 +127,13 @@ export default function Navbar() {
             {open ? <X /> : <Menu />}
           </button>
         </div>
-      </nav>
 
-      <span
-        className="navbar__progress"
-        style={{ transform: `scaleX(${progress})` }}
-        aria-hidden="true"
-      />
+        <span
+          className="navbar__progress"
+          style={{ transform: `scaleX(${progress})` }}
+          aria-hidden="true"
+        />
+      </nav>
 
       {/* Mobile menu */}
       <div

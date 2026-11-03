@@ -10,6 +10,9 @@ const socials = [
   { label: "Email", href: `mailto:${links.email}`, Icon: Mail },
 ];
 
+const [firstName, ...restOfName] = hero.displayName.split(" ");
+const lastName = restOfName.join(" ");
+
 export default function Hero() {
   /* If the photo file is missing we show the monogram instead of a broken image */
   const [photoFailed, setPhotoFailed] = useState(false);
@@ -21,6 +24,10 @@ export default function Hero() {
         <span className="hero__orb hero__orb--2" />
         <span className="hero__orb hero__orb--3" />
       </div>
+
+      <span className="hero__side" aria-hidden="true">
+        Portfolio — 2026
+      </span>
 
       <div className="container hero__inner">
         {/* ---------------- Introduction ---------------- */}
@@ -37,9 +44,12 @@ export default function Hero() {
           <h1 className="hero__title">
             <span className="hero__greeting">{hero.greeting}</span>
             <span className="hero__name">
-              {hero.displayName}
-              <span className="hero__name-dot" aria-hidden="true">
-                .
+              <span className="hero__name-first">{firstName}</span>
+              <span className="hero__name-last">
+                {lastName}
+                <span className="hero__name-dot" aria-hidden="true">
+                  .
+                </span>
               </span>
             </span>
           </h1>
@@ -124,10 +134,18 @@ export default function Hero() {
               <span className="hero__portrait-tag-dot" aria-hidden="true" />
               MERN Stack
             </span>
+
+            <div className="hero__portrait-card">
+              <span className="hero__portrait-card-label">Based in</span>
+              <strong className="hero__portrait-card-value">
+                {hero.photoCaption}
+              </strong>
+            </div>
           </div>
 
           <figcaption className="hero__portrait-caption">
-            <span>{hero.photoCaption}</span>
+            <span className="hero__portrait-caption-index">01</span>
+            <span>Full stack · Portfolio</span>
             <span className="hero__portrait-line" aria-hidden="true" />
           </figcaption>
         </figure>
