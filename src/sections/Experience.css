@@ -1,18 +1,18 @@
 .timeline {
   position: relative;
   display: grid;
-  gap: 22px;
-  padding-left: 34px;
+  gap: 20px;
+  padding-left: 38px;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 5px;
-  top: 10px;
-  bottom: 10px;
+  left: 6px;
+  top: 16px;
+  bottom: 16px;
   width: 1px;
-  background: linear-gradient(180deg, var(--accent-line), var(--border-soft));
+  background: linear-gradient(180deg, var(--accent-line), var(--border-soft) 70%, transparent);
 }
 
 .timeline__item {
@@ -21,25 +21,25 @@
 
 .timeline__node {
   position: absolute;
-  left: -34px;
-  top: 28px;
-  width: 9px;
-  height: 9px;
+  left: -38px;
+  top: 30px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: var(--bg);
   border: 2px solid var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  box-shadow: 0 0 0 5px var(--accent-soft);
   z-index: 1;
 }
 
 .timeline__card {
-  padding: clamp(20px, 2.4vw, 26px);
+  padding: clamp(22px, 2.6vw, 30px);
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  transition: transform 250ms ease, border-color 250ms ease, background-color 250ms ease,
-    box-shadow 250ms ease;
+  transition: transform 0.3s var(--ease), border-color 0.3s ease,
+    background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -51,38 +51,90 @@
   }
 
   .timeline__item:hover .timeline__node {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-soft);
+    box-shadow: 0 0 0 7px var(--accent-soft);
   }
 }
 
-.timeline__head {
+.timeline__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.timeline__top-left {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
+}
+
+.timeline__index {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+.timeline__type {
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
 }
 
 .timeline__period {
   font-family: var(--mono);
-  font-size: 0.73rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
   color: var(--accent-text);
   background: var(--accent-soft);
   border: 1px solid var(--accent-line);
-  border-radius: 6px;
-  padding: 3px 10px;
+  border-radius: 999px;
+  padding: 4px 11px;
+  white-space: nowrap;
 }
 
-.timeline__type {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-dim);
+.timeline__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.timeline__mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.timeline__heading {
+  min-width: 0;
 }
 
 .timeline__role {
-  font-size: clamp(1.05rem, 1.8vw, 1.22rem);
-  margin-bottom: 8px;
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  letter-spacing: -0.025em;
+  color: var(--heading);
+  margin-bottom: 7px;
 }
 
 .timeline__company {
@@ -90,8 +142,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 0.9rem;
-  margin-bottom: 14px;
+  font-size: 0.88rem;
 }
 
 .timeline__company-name {
@@ -116,30 +167,49 @@
 .timeline__desc {
   font-size: 0.92rem;
   color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  max-width: 760px;
+  line-height: 1.75;
+  max-width: 74ch;
 }
 
 /* Responsive --------------------------------------------------------- */
 @media (max-width: 600px) {
   .timeline {
-    padding-left: 26px;
-    gap: 18px;
+    padding-left: 28px;
+    gap: 16px;
   }
 
   .timeline::before {
-    left: 4px;
+    left: 5px;
   }
 
   .timeline__node {
-    left: -26px;
+    left: -28px;
     top: 26px;
-    width: 9px;
-    height: 9px;
   }
 
-  .timeline__card:hover {
+  .timeline__top {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .timeline__mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 0.88rem;
+  }
+
+  .timeline__main {
+    gap: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__card {
+    transition: none;
+  }
+
+  .timeline__item:hover .timeline__card {
     transform: none;
   }
 }

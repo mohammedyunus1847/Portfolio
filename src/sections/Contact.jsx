@@ -42,26 +42,58 @@ export default function Contact() {
         <Reveal className="contact__channels">
           <p className="contact__label">Get in touch</p>
 
+          <div className="contact__email">
+            <span className="contact__email-label">Direct email</span>
+            <div className="contact__email-row">
+              <a href={`mailto:${links.email}`} className="contact__email-link">
+                {links.email}
+              </a>
+
+              <button
+                type="button"
+                className="contact__copy"
+                onClick={copyEmail}
+                aria-label={copied ? "Email address copied" : "Copy email address"}
+              >
+                {copied ? (
+                  <Check size={14} aria-hidden="true" />
+                ) : (
+                  <Copy size={14} aria-hidden="true" />
+                )}
+                <span>{copied ? "Copied" : "Copy"}</span>
+              </button>
+            </div>
+            <span className="sr-only" aria-live="polite">
+              {copied ? "Email address copied to clipboard" : ""}
+            </span>
+          </div>
+
           <ul>
-            {contact.channels.map(({ id, label, value, href, icon: Icon }) => (
-              <li key={id}>
-                <a
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                  className="contact__channel"
-                >
-                  <span className="icon-badge" aria-hidden="true">
-                    <Icon size={17} />
-                  </span>
-                  <span className="contact__channel-text">
-                    <span className="contact__channel-label">{label}</span>
-                    <span className="contact__channel-value">{value}</span>
-                  </span>
-                  <ArrowUpRight size={15} className="contact__channel-arrow" aria-hidden="true" />
-                </a>
-              </li>
-            ))}
+            {contact.channels
+              .filter(({ id }) => id !== "email")
+              .map(({ id, label, value, href, icon: Icon }) => (
+                <li key={id}>
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel="noreferrer"
+                    className="contact__channel"
+                  >
+                    <span className="icon-badge" aria-hidden="true">
+                      <Icon size={17} />
+                    </span>
+                    <span className="contact__channel-text">
+                      <span className="contact__channel-label">{label}</span>
+                      <span className="contact__channel-value">{value}</span>
+                    </span>
+                    <ArrowUpRight
+                      size={15}
+                      className="contact__channel-arrow"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </li>
+              ))}
           </ul>
         </Reveal>
 

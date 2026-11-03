@@ -29,13 +29,14 @@ const SUPPORTING_FEATURE_LIMIT = 3;
  * Props
  *   project : one object from the `projects` array in src/data/siteData.js
  *   variant : "featured" (large, side-by-side) or "default" (grid card)
+ *   index   : position in the grid, used to tint the generated cover art
  *   delay   : ms used to stagger the reveal animation
  *
  * The card renders whatever the project object contains:
  * missing GitHub / demo links are hidden and a missing image falls back
- * to a designed CSS placeholder, so no card ever shows a broken element.
+ * to a designed CSS illustration, so no card ever shows a broken element.
  */
-export default function ProjectCard({ project, variant = "default", delay = 0 }) {
+export default function ProjectCard({ project, variant = "default", index = 0, delay = 0 }) {
   const [imageFailed, setImageFailed] = useState(false);
 
   const hasImage = isUsableLink(project.image) && !imageFailed;
@@ -50,6 +51,7 @@ export default function ProjectCard({ project, variant = "default", delay = 0 })
     ? features
     : features.slice(0, SUPPORTING_FEATURE_LIMIT);
   const hiddenFeatures = features.length - visibleFeatures.length;
+  const tone = isFeatured ? 0 : ((index % 3) + 1);
 
   return (
     <Reveal className="pcard-wrap" delay={delay}>
@@ -68,10 +70,34 @@ export default function ProjectCard({ project, variant = "default", delay = 0 })
               onError={() => setImageFailed(true)}
             />
           ) : (
-            <div className="pcard__placeholder" aria-hidden="true">
-              <span className="pcard__placeholder-index">{project.number}</span>
-              <span className="pcard__monogram">{toMonogram(project.title)}</span>
-              <span className="pcard__placeholder-meta">{project.category}</span>
+            <div className={`pcard__art pcard__art--tone-${tone}`} aria-hidden="true">
+              <span className="pcard__art-glow" />
+              <span className="pcard__art-grid" />
+              <span className="pcard__art-monogram">{toMonogram(project.title)}</span>
+
+              <div className="pcard__art-window">
+                <div className="pcard__art-bar">
+                  <span className="pcard__art-dot" />
+                  <span className="pcard__art-dot" />
+                  <span className="pcard__art-dot" />
+                  <span className="pcard__art-url" />
+                </div>
+                <div className="pcard__art-body">
+                  <span className="pcard__art-line pcard__art-line--lg" />
+                  <span className="pcard__art-line" />
+                  <span className="pcard__art-line pcard__art-line--sm" />
+                  <div className="pcard__art-tiles">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pcard__art-footer">
+                <span className="pcard__art-index">{project.number}</span>
+                <span className="pcard__art-category">{project.category}</span>
+              </div>
             </div>
           )}
         </div>
@@ -82,9 +108,7 @@ export default function ProjectCard({ project, variant = "default", delay = 0 })
             <span className="pcard__index">{project.number}</span>
 
             <div className="pcard__labels">
-              {project.featured && (
-                <span className="pcard__badge">Featured</span>
-              )}
+              {project.featured && <span className="pcard__badge">Featured</span>}
               <span className="pcard__category">{project.category}</span>
             </div>
           </div>
@@ -112,7 +136,7 @@ export default function ProjectCard({ project, variant = "default", delay = 0 })
           )}
 
           {project.technologies?.length > 0 && (
-            <ul className="tag-row pcard__tags">
+            <ul className="tag-row pcard__tags" aria-label="Technologies used">
               {project.technologies.map((tech) => (
                 <li key={tech} className="tag">
                   {tech}

@@ -10,14 +10,22 @@
 }
 
 .tag {
-  padding: 5px 10px;
-  border-radius: 6px;
-  background: var(--surface-3);
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text-muted);
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: -0.01em;
+  line-height: 1.4;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.tag:hover {
+  color: var(--accent-text);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
 }
 
 /* Checklist -------------------------------------------------------- */

@@ -28,7 +28,7 @@ export default function ThemeToggle({ className = "" }) {
     root.style.colorScheme = theme;
 
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", isLight ? "#f5f6fb" : "#08090d");
+    if (meta) meta.setAttribute("content", isLight ? "#f6f3ec" : "#0a0a0c");
 
     try {
       window.localStorage.setItem(STORAGE_KEY, theme);

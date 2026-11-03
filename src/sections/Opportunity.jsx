@@ -8,22 +8,30 @@ export default function Opportunity() {
     <section id="opportunity" className="opportunity">
       <div className="container">
         <Reveal className="opportunity__panel">
-          <span className="section-kicker">Open to work</span>
-          <h2 className="opportunity__title">{opportunity.title}</h2>
-          <p className="opportunity__desc">{opportunity.description}</p>
+          <span className="opportunity__decor" aria-hidden="true" />
 
-          <ul className="opportunity__tags">
-            {opportunity.tags.map((tag) => (
-              <li key={tag} className="chip">
-                {tag}
-              </li>
-            ))}
-          </ul>
+          <div className="opportunity__content">
+            <span className="opportunity__eyebrow">
+              <span className="opportunity__pulse" aria-hidden="true" />
+              Open to work
+            </span>
 
-          <a href={opportunity.cta.href} className="btn btn-primary opportunity__cta">
-            {opportunity.cta.label}
-            <ArrowRight aria-hidden="true" />
-          </a>
+            <h2 className="opportunity__title">{opportunity.title}</h2>
+            <p className="opportunity__desc">{opportunity.description}</p>
+
+            <ul className="opportunity__tags">
+              {opportunity.tags.map((tag) => (
+                <li key={tag} className="chip">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+
+            <a href={opportunity.cta.href} className="btn btn-primary opportunity__cta">
+              {opportunity.cta.label}
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

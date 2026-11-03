@@ -60,18 +60,21 @@ export const navLinks = [
 
 export const hero = {
   label: "Available for software development opportunities",
+  greeting: "Hello, I'm",
+  displayName: "Yunus Mohammed",
+  availability: "Open to Opportunities",
   /* The main statement shown under the name */
   headline: "I build web applications that solve real problems.",
-  roleLead: "Full Stack",
-  roleStack: "/ MERN",
-  roleAccent: "Developer",
+  rolePrimary: "Junior Full Stack Developer",
+  roleSecondary: "MERN Stack Developer",
   description:
-    "I design, build and ship responsive web applications — from database design and REST APIs to clean, accessible React interfaces.",
+    "I build modern, responsive web applications with React, Node.js, Express.js, and MongoDB — from database design and REST APIs to clean, accessible interfaces.",
   /* Supporting technologies listed under the introduction */
   stack: ["React", "Node.js", "Express.js", "MongoDB"],
   primaryCta: { label: "View Projects", href: "#projects" },
   secondaryCta: { label: "Download Resume", href: profile.resumeUrl },
   tertiaryCta: { label: "Contact Me", href: "#contact" },
+  scrollLabel: "Scroll to explore",
   photoCaption: "Chennai, Tamil Nadu",
 
   /* Optional code snippet. It is not rendered anywhere at the moment —
@@ -131,6 +134,7 @@ export const about = {
     "I'm Yunus Mohammed, a BCA graduate and aspiring Full Stack Developer who enjoys turning ideas into practical web applications. I work across the frontend and backend, building responsive user interfaces, REST APIs, authentication flows, and database-driven features.",
     "I'm strengthening my development skills through hands-on projects using React, Node.js, Express.js, MongoDB, and MySQL. I enjoy learning how the different parts of an application connect, troubleshooting integration issues, and building features that solve real problems.",
   ],
+  focus: ["Backend development", "REST APIs", "Database design", "Responsive UI"],
   summary: [
     { label: "Education", value: "BCA — C. Abdul Hakeem College", icon: GraduationCap },
     { label: "Focus", value: "MERN Stack / Full Stack Development", icon: CodeXml },
