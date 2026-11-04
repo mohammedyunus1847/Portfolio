@@ -1,14 +1,14 @@
 .education__grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
-  gap: 18px;
+  gap: var(--grid-gap);
   align-items: stretch;
 }
 
 .education__card {
   display: flex;
   flex-direction: column;
-  padding: clamp(22px, 2.6vw, 30px);
+  padding: var(--card-pad);
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
@@ -59,7 +59,7 @@
 }
 
 .education__period {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.67rem;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -71,15 +71,15 @@
 }
 
 .education__title {
-  font-size: clamp(1.12rem, 2vw, 1.34rem);
+  font-size: var(--fs-h3);
   letter-spacing: -0.025em;
   color: var(--heading);
   margin-bottom: 8px;
 }
 
 .education__institution {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
   color: var(--text);
   margin-bottom: 6px;
 }
@@ -88,7 +88,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
 }
 
@@ -126,13 +126,13 @@
 }
 
 .education__score-out {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.78rem;
   color: var(--text-dim);
 }
 
 .education__score-label {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.62rem;
   font-weight: 500;
   line-height: 1.5;

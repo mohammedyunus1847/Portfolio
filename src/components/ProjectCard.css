@@ -221,14 +221,14 @@
 }
 
 .pcard__art-index {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   color: var(--text-dim);
 }
 
 .pcard__art-category {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -243,7 +243,7 @@
   flex-direction: column;
   gap: 14px;
   flex: 1;
-  padding: clamp(20px, 2.1vw, 26px);
+  padding: var(--card-pad);
 }
 
 .pcard__meta {
@@ -254,7 +254,7 @@
 }
 
 .pcard__index {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   color: var(--text-dim);
@@ -269,7 +269,7 @@
 }
 
 .pcard__badge {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.11em;
@@ -282,7 +282,7 @@
 }
 
 .pcard__category {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -292,15 +292,15 @@
 }
 
 .pcard__title {
-  font-size: clamp(1.24rem, 1.8vw, 1.4rem);
-  letter-spacing: -0.03em;
+  font-size: var(--fs-h3);
+  letter-spacing: -0.025em;
   color: var(--heading);
 }
 
 .pcard__desc {
   color: var(--text-muted);
-  font-size: 0.92rem;
-  line-height: 1.7;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
 }
 
 .pcard--default .pcard__desc {
@@ -321,7 +321,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -352,7 +352,7 @@
 }
 
 .pcard__note {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
   color: var(--text-dim);

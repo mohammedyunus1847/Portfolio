@@ -218,19 +218,24 @@ export const projects = [
     category: "FULL STACK · MERN",
     featured: true,
     description:
-      "A full-stack job portal connecting recruiters and job seekers through secure authentication, job management, and application tracking.",
+      "A full-stack job portal connecting recruiters and job seekers through role-based dashboards, secure authentication, and complete job and application management.",
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "bcrypt"],
     features: [
-      "Separate recruiter and job seeker roles",
-      "JWT authentication and role-based authorization",
-      "Create, update, and delete job listings",
-      "Job search and filtering",
-      "Job applications and recruiter applicant management",
-      "Application status updates and protected API routes",
+      "Role-based recruiter and job seeker dashboards",
+      "JWT authentication with bcrypt password hashing",
+      "Job listing creation and management",
+      "Job applications and applicant tracking",
+      "Job search, filtering, and pagination",
+      "Protected routes and role-based authorization",
     ],
     github: "https://github.com/mohammedyunus1847/-job-portal",
-    demo: null,
+    demo: "https://job-portal-fd4fpliq3-yunus-8415.vercel.app/",
     image: null,
+    preview: {
+      embeddable: true,
+      blockedReason:
+        "The Job Portal allows embedding from this portfolio with a Content-Security-Policy frame-ancestors rule. If this frame stays empty, Vercel Deployment Protection (Vercel Authentication) is likely enabled for the deployment. Disable Vercel Authentication for the production deployment or add a protection bypass for the portfolio domain, then redeploy.",
+    },
   },
   {
     id: "student-submission",

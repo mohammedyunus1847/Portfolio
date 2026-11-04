@@ -1,5 +1,5 @@
 .opportunity {
-  padding-block: clamp(52px, 7vw, 88px);
+  padding-block: var(--section-pad);
 }
 
 .opportunity__panel {
@@ -65,10 +65,10 @@
   border-radius: 999px;
   border: 1px solid var(--accent-line);
   background: var(--accent-soft);
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-text);
 }
@@ -97,9 +97,9 @@
 .opportunity__title {
   max-width: 20ch;
   margin-bottom: 16px;
-  font-size: clamp(1.8rem, 4.2vw, 3rem);
-  letter-spacing: -0.04em;
-  line-height: 1.08;
+  font-size: var(--fs-h2);
+  letter-spacing: -0.025em;
+  line-height: var(--lh-tight);
   color: var(--heading);
   text-wrap: balance;
 }
@@ -108,8 +108,8 @@
   max-width: 620px;
   margin-bottom: 28px;
   color: var(--text-muted);
-  font-size: clamp(0.95rem, 1.3vw, 1.03rem);
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
   text-wrap: pretty;
 }
 

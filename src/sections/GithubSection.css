@@ -8,7 +8,7 @@
 .github__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+  gap: var(--grid-gap);
   align-items: stretch;
 }
 
@@ -18,7 +18,7 @@
   flex-direction: column;
   gap: 12px;
   height: 100%;
-  padding: 24px;
+  padding: var(--card-pad);
   overflow: hidden;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -60,8 +60,8 @@
 .github__repo-head h3 {
   flex: 1;
   min-width: 0;
-  font-size: 0.98rem;
-  font-weight: 600;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
   color: var(--heading);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,9 +83,9 @@
 
 .github__repo-desc {
   flex: 1;
-  font-size: 0.86rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: var(--lh-body);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -100,9 +100,9 @@
   gap: 14px;
   padding-top: 14px;
   border-top: 1px solid var(--border-soft);
-  font-family: var(--mono);
-  font-size: 0.69rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.01em;
   color: var(--text-dim);
 }
 

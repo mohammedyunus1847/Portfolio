@@ -89,8 +89,9 @@
   display: block;
   padding: 8px 13px;
   border-radius: 9px;
-  font-size: 0.86rem;
-  font-weight: 500;
+  font-family: var(--font);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
   color: var(--text-muted);
   transition: color 0.2s ease, background 0.2s ease;
 }
@@ -240,7 +241,7 @@
 }
 
 .navbar__mobile-index {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.64rem;
   letter-spacing: 0.12em;
   color: var(--text-dim);

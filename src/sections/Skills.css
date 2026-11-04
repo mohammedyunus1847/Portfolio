@@ -1,7 +1,7 @@
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: var(--grid-gap);
   align-items: stretch;
 }
 
@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  padding: clamp(20px, 2.2vw, 26px);
+  padding: var(--card-pad);
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
@@ -62,15 +62,16 @@
 }
 
 .skills__category-title {
-  font-size: 1.02rem;
+  font-size: var(--fs-h3);
   letter-spacing: -0.02em;
   color: var(--heading);
 }
 
 .skills__category-count {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
@@ -90,8 +91,8 @@
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
-  font-size: 0.82rem;
-  font-weight: 500;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
   color: var(--text-muted);
   line-height: 1.4;
   transition: transform 0.22s ease, color 0.22s ease, border-color 0.22s ease,

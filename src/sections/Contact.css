@@ -1,21 +1,26 @@
 .contact__grid {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: clamp(22px, 3vw, 34px);
   align-items: stretch;
+}
+
+.contact__grid > * {
+  min-width: 0;
 }
 
 .contact__channels {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 0;
 }
 
 .contact__label {
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-dim);
   margin-bottom: 4px;
@@ -32,10 +37,10 @@
 }
 
 .contact__email-label {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
@@ -50,8 +55,8 @@
 
 .contact__email-link {
   min-width: 0;
-  font-size: clamp(0.86rem, 1.5vw, 0.98rem);
-  font-weight: 600;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.01em;
   color: var(--heading);
   word-break: break-word;
@@ -72,10 +77,10 @@
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text-muted);
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease,
@@ -98,12 +103,18 @@
 .contact__channels ul {
   display: grid;
   gap: 10px;
+  min-width: 0;
+}
+
+.contact__channels li {
+  min-width: 0;
 }
 
 .contact__channel {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
   padding: 14px 16px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -129,15 +140,16 @@
 }
 
 .contact__channel-label {
-  font-family: var(--mono);
-  font-size: 0.59rem;
-  letter-spacing: 0.14em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
 
 .contact__channel-value {
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,7 +170,8 @@
 /* Form ---------------------------------------------------------------- */
 .contact__form-card {
   display: flex;
-  padding: clamp(22px, 3vw, 36px);
+  min-width: 0;
+  padding: var(--card-pad);
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
@@ -179,10 +192,10 @@
 }
 
 .contact__field label {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-family: var(--font);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -195,7 +208,7 @@
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   resize: vertical;
 }
@@ -218,7 +231,7 @@
 }
 
 .contact__hint {
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text-dim);
   text-align: center;
 }
@@ -246,13 +259,13 @@
 }
 
 .contact__success h3 {
-  font-size: 1.14rem;
+  font-size: var(--fs-h3);
 }
 
 .contact__success p {
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: var(--lh-body);
 }
 
 .contact__success p strong {
@@ -270,7 +283,7 @@
 .contact__success-mail {
   margin-top: auto;
   padding-top: 18px;
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 0.84rem;
   color: var(--accent-text);
   border-bottom: 1px solid transparent;
@@ -284,7 +297,7 @@
 /* Responsive ----------------------------------------------------------- */
 @media (max-width: 900px) {
   .contact__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

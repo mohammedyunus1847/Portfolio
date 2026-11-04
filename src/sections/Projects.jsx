@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "../components/BrandIcons";
+import FeaturedProjectShowcase from "../components/FeaturedProjectShowcase";
 import ProjectCard from "../components/ProjectCard";
 import Reveal from "../components/Reveal";
 import Section from "../components/Section";
@@ -24,9 +25,7 @@ export default function Projects() {
       subtitle="Practical, full-stack applications built to solve real problems and sharpen my engineering skills."
       alt
     >
-      {featured && (
-        <ProjectCard project={featured} variant="featured" index={0} />
-      )}
+      {featured && <FeaturedProjectShowcase project={featured} />}
 
       <div className="projects__grid">
         {rest.map((project, index) => (

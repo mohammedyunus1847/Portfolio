@@ -7,7 +7,7 @@
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: var(--grid-gap);
   align-items: stretch;
   margin-top: 20px;
 }
@@ -24,10 +24,10 @@
 
 .projects__footnote {
   color: var(--text-dim);
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  line-height: 1.6;
+  font-family: var(--font);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  line-height: var(--lh-body);
 }
 
 /* Three columns on wide screens */
