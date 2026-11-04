@@ -175,7 +175,9 @@
 
 .hero__name {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.16em;
   font-family: var(--font-serif);
   font-size: var(--fs-display);
   font-weight: var(--fw-regular);
@@ -186,12 +188,11 @@
 }
 
 .hero__name-first {
-  display: block;
+  display: inline;
 }
 
 .hero__name-last {
-  display: block;
-  margin-left: clamp(18px, 4.5vw, 64px);
+  display: inline;
   font-style: italic;
   color: var(--heading);
 }
@@ -658,10 +659,6 @@
 
   .hero__name {
     font-size: clamp(2.9rem, 13vw, 4rem);
-  }
-
-  .hero__name-last {
-    margin-left: clamp(14px, 7vw, 40px);
   }
 
   .hero__footer {

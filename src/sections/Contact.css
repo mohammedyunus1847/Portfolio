@@ -230,6 +230,29 @@
   width: 100%;
 }
 
+.contact__submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.contact__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--danger-border);
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.contact__error svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 .contact__hint {
   font-size: var(--fs-xs);
   color: var(--text-dim);

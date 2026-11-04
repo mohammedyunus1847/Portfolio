@@ -33,7 +33,7 @@ export const profile = {
      The crop (how the picture is framed inside the hero card) is set with
      object-fit / object-position in src/sections/Hero.css. */
   profileImage: "/profile.jpg",
-  profileAlt: "Portrait of Yunus Mohammed, Full Stack Developer",
+  profileAlt: "Portrait of Yunus.A, Full Stack Developer",
 };
 
 export const links = {
@@ -61,7 +61,7 @@ export const navLinks = [
 export const hero = {
   label: "Available for software development opportunities",
   greeting: "Hello, I'm",
-  displayName: "Yunus Mohammed",
+  displayName: "Yunus.A",
   availability: "Open to Opportunities",
   /* The main statement shown under the name */
   headline: "I build web applications that solve real problems.",
@@ -87,7 +87,7 @@ export const hero = {
     { t: "plain", v: " {" },
     { nl: true },
     { t: "key", v: "  name:" },
-    { t: "str", v: ' "Yunus Mohammed",' },
+    { t: "str", v: ' "Yunus.A",' },
     { nl: true },
     { t: "key", v: "  role:" },
     { t: "str", v: ' "Full Stack Developer",' },
@@ -131,7 +131,7 @@ export const quickScan = [
 
 export const about = {
   paragraphs: [
-    "I'm Yunus Mohammed, a BCA graduate and aspiring Full Stack Developer who enjoys turning ideas into practical web applications. I work across the frontend and backend, building responsive user interfaces, REST APIs, authentication flows, and database-driven features.",
+    "I'm Yunus.A, a BCA graduate and aspiring Full Stack Developer who enjoys turning ideas into practical web applications. I work across the frontend and backend, building responsive user interfaces, REST APIs, authentication flows, and database-driven features.",
     "I'm strengthening my development skills through hands-on projects using React, Node.js, Express.js, MongoDB, and MySQL. I enjoy learning how the different parts of an application connect, troubleshooting integration issues, and building features that solve real problems.",
   ],
   focus: ["Backend development", "REST APIs", "Database design", "Responsive UI"],
@@ -374,10 +374,16 @@ export const contact = {
   title: "Let's build something together.",
   description:
     "If you're hiring for a junior developer role, have a project opportunity, or simply want to connect, I'd be happy to hear from you.",
+  /* Messages submitted through the contact form are delivered here.
+     FormSubmit requires a one-time activation: the first submission sends a
+     confirmation link to this inbox — click it once and all future messages
+     arrive automatically. Swap this for a Formspree/Web3Forms endpoint if
+     you prefer another provider. */
+  formEndpoint: `https://formsubmit.co/ajax/${links.email}`,
   channels: [
     { id: "email", label: "Email", value: links.email, href: `mailto:${links.email}`, icon: Mail },
     { id: "github", label: "GitHub", value: links.github.replace("https://", ""), href: links.github, icon: GithubIcon },
-    { id: "linkedin", label: "LinkedIn", value: "Yunus Mohammed", href: links.linkedin, icon: LinkedinIcon },
+    { id: "linkedin", label: "LinkedIn", value: "Yunus.A", href: links.linkedin, icon: LinkedinIcon },
     { id: "phone", label: "Phone", value: links.phone, href: `tel:${links.phoneRaw}`, icon: Phone },
   ],
 };

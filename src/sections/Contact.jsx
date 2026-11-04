@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, Mail, Send } from "lucide-react";
+import { AlertCircle, ArrowUpRight, Check, Copy, Mail, Send } from "lucide-react";
 import Reveal from "../components/Reveal";
 import Section from "../components/Section";
 import { contact, links } from "../data/siteData";
@@ -9,21 +9,56 @@ const emptyForm = { name: "", email: "", message: "" };
 
 export default function Contact() {
   const [form, setForm] = useState(emptyForm);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [copied, setCopied] = useState(false);
 
   const updateField = (event) =>
     setForm((prev) => ({ ...prev, [event.target.name]: event.target.value }));
 
-  /* No backend: the message opens in the visitor's own email app. */
-  const handleSubmit = (event) => {
+  /* Posts the message to FormSubmit, which forwards it to the inbox in
+     contact.formEndpoint. No backend or API key required. */
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name}\n${form.email}`);
+    setStatus("sending");
+    setErrorMsg("");
 
-    setSent(true);
-    window.location.href = `mailto:${links.email}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(contact.formEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio enquiry from ${form.name}`,
+          _template: "table",
+          _captcha: "false",
+          _honey: "",
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || data.success === false || data.success === "false") {
+        throw new Error(
+          data.message || "Your message could not be sent. Please try again.",
+        );
+      }
+
+      setStatus("sent");
+      setForm(emptyForm);
+    } catch (error) {
+      setStatus("error");
+      setErrorMsg(
+        error.message ||
+          `Something went wrong. Please email me directly at ${links.email}.`,
+      );
+    }
   };
 
   const copyEmail = async () => {
@@ -98,15 +133,15 @@ export default function Contact() {
         </Reveal>
 
         <Reveal className="contact__form-card" delay={100}>
-          {sent ? (
+          {status === "sent" ? (
             <div className="contact__success" role="status">
               <span className="contact__success-icon" aria-hidden="true">
                 <Check size={22} />
               </span>
-              <h3>Your email app should be opening</h3>
+              <h3>Message sent — thank you!</h3>
               <p>
-                I've prepared your message to <strong>{links.email}</strong>. If nothing
-                opened, copy my address and send it directly.
+                Your message has been delivered to <strong>{links.email}</strong>. I'll
+                get back to you as soon as I can.
               </p>
 
               <div className="contact__success-actions">
@@ -128,7 +163,8 @@ export default function Contact() {
                   type="button"
                   className="btn btn-outline btn-sm"
                   onClick={() => {
-                    setSent(false);
+                    setStatus("idle");
+                    setErrorMsg("");
                     setForm(emptyForm);
                   }}
                 >
@@ -184,13 +220,24 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary contact__submit">
-                Send Message
+              {status === "error" && (
+                <p className="contact__error" role="alert">
+                  <AlertCircle size={15} aria-hidden="true" />
+                  <span>{errorMsg}</span>
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className="btn btn-primary contact__submit"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending…" : "Send Message"}
                 <Send size={16} aria-hidden="true" />
               </button>
 
               <p className="contact__hint">
-                Opens your email app — nothing is stored on this site.
+                Delivered straight to my inbox — I usually reply within a day.
               </p>
             </form>
           )}

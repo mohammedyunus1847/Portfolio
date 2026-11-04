@@ -10,8 +10,9 @@ const socials = [
   { label: "Email", href: `mailto:${links.email}`, Icon: Mail },
 ];
 
-const [firstName, ...restOfName] = hero.displayName.split(" ");
-const lastName = restOfName.join(" ");
+const nameParts = hero.displayName.split(/[\s.]+/).filter(Boolean);
+const firstName = nameParts[0] ?? "";
+const lastName = nameParts.slice(1).join(" ");
 
 export default function Hero() {
   /* If the photo file is missing we show the monogram instead of a broken image */
@@ -46,10 +47,10 @@ export default function Hero() {
             <span className="hero__name">
               <span className="hero__name-first">{firstName}</span>
               <span className="hero__name-last">
-                {lastName}
                 <span className="hero__name-dot" aria-hidden="true">
                   .
-                </span>
+                </span>{" "}
+                {lastName}
               </span>
             </span>
           </h1>
