@@ -29,10 +29,10 @@ export const profile = {
   role: "Full Stack Developer",
   resumeUrl: "/resume.pdf",
   /* Portrait shown in the hero. The file lives in /public, so it is served
-     from the site root as "/profile.jpg".
+     from the site root as "/yunus2.jpg".
      The crop (how the picture is framed inside the hero card) is set with
      object-fit / object-position in src/sections/Hero.css. */
-  profileImage: "/profile.jpg",
+  profileImage: "/yunus2.jpg",
   profileAlt: "Portrait of Yunus.A, Full Stack Developer",
 };
 
