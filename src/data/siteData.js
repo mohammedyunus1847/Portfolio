@@ -65,7 +65,7 @@ export const hero = {
   availability: "Open to Opportunities",
   /* The main statement shown under the name */
   headline: "I build web applications that solve real problems.",
-  rolePrimary: "Junior Full Stack Developer",
+  rolePrimary: " Full Stack Developer",
   roleSecondary: "MERN Stack Developer",
   description:
     "I build modern, responsive web applications with React, Node.js, Express.js, and MongoDB — from database design and REST APIs to clean, accessible interfaces.",

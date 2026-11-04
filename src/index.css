@@ -76,7 +76,7 @@
   /* Type — one sans-serif for UI/body, one serif for display headings.
      --mono and --font-display are kept as aliases so existing rules inherit
      the same consistent type system instead of introducing extra families. */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font: var(--font-sans);
   --font-display: var(--font-sans);
   --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
